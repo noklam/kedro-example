@@ -34,21 +34,23 @@ Delete this when you start working on your own Kedro project.
 
 from kedro.pipeline import Pipeline, node
 
-from .nodes import split_data
-
+from .nodes import split_data, partition_by_day, show_rows
+from .nodes import *
 
 def create_pipeline(**kwargs):
     return Pipeline(
         [
-            node(
-                split_data,
-                ["example_iris_data", "params:example_test_data_ratio"],
-                dict(
-                    train_x="example_train_x",
-                    train_y="example_train_y",
-                    test_x="example_test_x",
-                    test_y="example_test_y",
-                ),
-            )
+            node(partition_by_day, "ontime_2019", "ontime_2019_by_day")
+            ,node(show_rows, "ontime_2019_by_day", None, name='show_rows')
+            # node(
+            #     split_data,
+            #     ["example_iris_data", "params:example_test_data_ratio"],
+            #     dict(
+            #         train_x="example_train_x",
+            #         train_y="example_train_y",
+            #         test_x="example_test_x",
+            #         test_y="example_test_y",
+            #     ),
+            
         ]
     )

@@ -43,8 +43,23 @@
 # This is a data set used by the "Hello World" example pipeline provided with the project
 # template. Please feel free to remove it once you remove the example pipeline.
 
-example_iris_data:
+ontime_2019:
   type: pandas.CSVDataSet
-  filepath: data/01_raw/iris.csv
+  filepath: data/01_raw/Jan_2019_ontime.csv
+
+
+
+ontime_2019_by_day:
+  type: PartitionedDataSet
+  path: data/01_raw/ontime_2019_by_day
+  dataset: pandas.CSVDataSet
+  # filename_suffix: .csv
+
+
+# ontime_2019_incremental:
+# type: IncrementalDataSet
+# filepath: data/02_intermediate/
+# dataset: pandas.CSVDataSet
+# filename_suffix: .csv
 
 
