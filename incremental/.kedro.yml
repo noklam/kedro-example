@@ -1,0 +1,6 @@
+context_path: incremental.run.ProjectContext
+project_name: "incremental"
+project_version: "0.16.5"
+package_name: "incremental"
+hooks:
+  - incremental.hooks.project_hooks
