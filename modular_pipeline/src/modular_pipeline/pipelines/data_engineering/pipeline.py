@@ -54,15 +54,15 @@ cook_pipeline = Pipeline(
 
 cook_breakfast_pipeline = pipeline(
     cook_pipeline,
-    inputs="frozen_meat",  # inputs stay the same, don't namespace
+    inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
     # outputs={"grilled_meat": "breakfast_food"},
-    # namespace="breakfast",
+    namespace="breakfast",
 )
 cook_lunch_pipeline = pipeline(
     cook_pipeline,
-    inputs="frozen_meat2",  # inputs stay the same, don't namespace
+    inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
     # outputs={"grilled_meat": "lunch_food"},
-    # namespace="lunch",
+    namespace="lunch",
 )
 
 final_pipeline = (
