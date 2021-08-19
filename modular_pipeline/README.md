@@ -9,6 +9,6 @@ Try different things:
 |     |     |
 | --- | --- |
 | Node | Script |
-| ![images/pipeline_1.png](:/73412de12b7d4e938d1f4adc5b172770) | ![images/code_1.png](:/8e589567d5654d2eb6009fdb24672c6f) |
-| ![images/pipeline_2.png](:/c8d60ee53d82409d875df6f0234f9ae2) | ![images/code_2.png](:/8114ce27e2ed4209b4b298a73d1e266a) |
-| ![images/pipeline_3.png](:/07f8e75d24224141b8416b4cf6677e94) | ![images/code_3.png](:/97905611b8b143f987ffd0452eec1454) |
+| ![images/pipeline_1.png](images/pipeline_1.png) | ![images/code_1.png](images/code_1.png) |
+| ![images/pipeline_2.png](mages/pipeline_2.png) | ![images/code_2.png](images/code_2.png) |
+| ![images/pipeline_3.png](images/pipeline_3.png) | ![images/code_3.png](images/code_3.png) |
