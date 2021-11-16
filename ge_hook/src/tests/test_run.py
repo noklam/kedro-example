@@ -26,53 +26,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Example code for the nodes in the example pipeline. This code is meant
-just for illustrating basic Kedro features.
-
-Delete this when you start working on your own Kedro project.
 """
+This module contains an example test.
 
-from kedro.pipeline import Pipeline, node, pipeline
+Tests should be placed in ``src/tests``, in modules that mirror your
+project's structure, and in files named test_*.py. They are simply functions
+named ``test_*`` which test a unit of logic.
 
-from .nodes import node1_func, node2_func, add
+To run the tests, run ``kedro test``.
+"""
+from pathlib import Path
 
-def defrost(x):
-    print('defrost')
-    return 'defrost'
-
-def grill(x):
-    print('grill')
-    return 'grill'
+import pytest
+from kedro.framework.context import KedroContext
 
 
-cook_pipeline = Pipeline(
-    [
-        node(defrost, "frozen_meat", "meat", name="defrost_node"),
-        node(grill, "meat", "grilled_meat"),
-    ]
-)
+@pytest.fixture
+def project_context():
+    return KedroContext(package_name="ge_hook", project_path=Path.cwd())
 
-cook_breakfast_pipeline = pipeline(
-    cook_pipeline,
-    # inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "breakfast_food"},
-    namespace="breakfast",
-)
-cook_lunch_pipeline = pipeline(
-    cook_pipeline,
-    # inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "lunch_food"},
-    namespace="lunch",
-)
 
-final_pipeline = (
-    cook_breakfast_pipeline
-    + cook_lunch_pipeline
-)
-
-def create_pipeline():
-    return final_pipeline
-    # node1 = node(func=node1_func, inputs="a", outputs="b")
-    # node2 = node(func=node2_func, inputs="c", outputs="d")
-    # node3 = node(func=add, inputs=["b", "d"], outputs="sum")
-    # return Pipeline([node1, node2, node3])
+# The tests below are here for the demonstration purpose
+# and should be replaced with the ones testing the project
+# functionality
+class TestProjectContext:
+    def test_package_name(self, project_context):
+        assert project_context.package_name == "ge_hook"

@@ -25,54 +25,7 @@
 #
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-"""Example code for the nodes in the example pipeline. This code is meant
-just for illustrating basic Kedro features.
-
-Delete this when you start working on your own Kedro project.
+"""ge_hook
 """
 
-from kedro.pipeline import Pipeline, node, pipeline
-
-from .nodes import node1_func, node2_func, add
-
-def defrost(x):
-    print('defrost')
-    return 'defrost'
-
-def grill(x):
-    print('grill')
-    return 'grill'
-
-
-cook_pipeline = Pipeline(
-    [
-        node(defrost, "frozen_meat", "meat", name="defrost_node"),
-        node(grill, "meat", "grilled_meat"),
-    ]
-)
-
-cook_breakfast_pipeline = pipeline(
-    cook_pipeline,
-    # inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "breakfast_food"},
-    namespace="breakfast",
-)
-cook_lunch_pipeline = pipeline(
-    cook_pipeline,
-    # inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "lunch_food"},
-    namespace="lunch",
-)
-
-final_pipeline = (
-    cook_breakfast_pipeline
-    + cook_lunch_pipeline
-)
-
-def create_pipeline():
-    return final_pipeline
-    # node1 = node(func=node1_func, inputs="a", outputs="b")
-    # node2 = node(func=node2_func, inputs="c", outputs="d")
-    # node3 = node(func=add, inputs=["b", "d"], outputs="sum")
-    # return Pipeline([node1, node2, node3])
+__version__ = "0.1"

@@ -26,53 +26,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Example code for the nodes in the example pipeline. This code is meant
-just for illustrating basic Kedro features.
+"""Project settings."""
+from ge_hook.hooks import ProjectHooks, DataValidationHooks
 
-Delete this when you start working on your own Kedro project.
-"""
+# Instantiate and list your project hooks here
+HOOKS = (ProjectHooks(), DataValidationHooks())
 
-from kedro.pipeline import Pipeline, node, pipeline
+# List the installed plugins for which to disable auto-registry
+# DISABLE_HOOKS_FOR_PLUGINS = ("kedro-viz",)
 
-from .nodes import node1_func, node2_func, add
+# Define where to store data from a KedroSession. Defaults to BaseSessionStore.
+# from kedro.framework.session.store import ShelveStore
+# SESSION_STORE_CLASS = ShelveStore
 
-def defrost(x):
-    print('defrost')
-    return 'defrost'
+# Define keyword arguments to be passed to `SESSION_STORE_CLASS` constructor
+# SESSION_STORE_ARGS = {
+#     "path": "./sessions"
+# }
 
-def grill(x):
-    print('grill')
-    return 'grill'
+# Define custom context class. Defaults to `KedroContext`
+# CONTEXT_CLASS = KedroContext
 
-
-cook_pipeline = Pipeline(
-    [
-        node(defrost, "frozen_meat", "meat", name="defrost_node"),
-        node(grill, "meat", "grilled_meat"),
-    ]
-)
-
-cook_breakfast_pipeline = pipeline(
-    cook_pipeline,
-    # inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "breakfast_food"},
-    namespace="breakfast",
-)
-cook_lunch_pipeline = pipeline(
-    cook_pipeline,
-    # inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "lunch_food"},
-    namespace="lunch",
-)
-
-final_pipeline = (
-    cook_breakfast_pipeline
-    + cook_lunch_pipeline
-)
-
-def create_pipeline():
-    return final_pipeline
-    # node1 = node(func=node1_func, inputs="a", outputs="b")
-    # node2 = node(func=node2_func, inputs="c", outputs="d")
-    # node3 = node(func=add, inputs=["b", "d"], outputs="sum")
-    # return Pipeline([node1, node2, node3])
+# Define the configuration folder. Defaults to `conf`
+# CONF_ROOT = "conf"

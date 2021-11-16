@@ -26,53 +26,40 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Example code for the nodes in the example pipeline. This code is meant
-just for illustrating basic Kedro features.
+from setuptools import find_packages, setup
 
-Delete this when you start working on your own Kedro project.
-"""
-
-from kedro.pipeline import Pipeline, node, pipeline
-
-from .nodes import node1_func, node2_func, add
-
-def defrost(x):
-    print('defrost')
-    return 'defrost'
-
-def grill(x):
-    print('grill')
-    return 'grill'
-
-
-cook_pipeline = Pipeline(
-    [
-        node(defrost, "frozen_meat", "meat", name="defrost_node"),
-        node(grill, "meat", "grilled_meat"),
-    ]
+entry_point = (
+    "ge_hook = ge_hook.__main__:main"
 )
 
-cook_breakfast_pipeline = pipeline(
-    cook_pipeline,
-    # inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "breakfast_food"},
-    namespace="breakfast",
-)
-cook_lunch_pipeline = pipeline(
-    cook_pipeline,
-    # inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "lunch_food"},
-    namespace="lunch",
-)
 
-final_pipeline = (
-    cook_breakfast_pipeline
-    + cook_lunch_pipeline
-)
+# get the dependencies and installs
+with open("requirements.txt", "r", encoding="utf-8") as f:
+    # Make sure we strip all comments and options (e.g "--extra-index-url")
+    # that arise from a modified pip.conf file that configure global options
+    # when running kedro build-reqs
+    requires = []
+    for line in f:
+        req = line.split("#", 1)[0].strip()
+        if req and not req.startswith("--"):
+            requires.append(req)
 
-def create_pipeline():
-    return final_pipeline
-    # node1 = node(func=node1_func, inputs="a", outputs="b")
-    # node2 = node(func=node2_func, inputs="c", outputs="d")
-    # node3 = node(func=add, inputs=["b", "d"], outputs="sum")
-    # return Pipeline([node1, node2, node3])
+setup(
+    name="ge_hook",
+    version="0.1",
+    packages=find_packages(exclude=["tests"]),
+    entry_points={"console_scripts": [entry_point]},
+    install_requires=requires,
+    extras_require={
+        "docs": [
+            "sphinx~=3.4.3",
+            "sphinx_rtd_theme==0.5.1",
+            "nbsphinx==0.8.1",
+            "nbstripout==0.3.3",
+            "recommonmark==0.7.1",
+            "sphinx-autodoc-typehints==1.11.1",
+            "sphinx_copybutton==0.3.1",
+            "ipykernel~=5.3",
+        ]
+    },
+)
