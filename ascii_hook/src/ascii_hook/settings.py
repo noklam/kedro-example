@@ -2,10 +2,11 @@
 from the Kedro defaults. For further information, including these default values, see
 https://kedro.readthedocs.io/en/stable/kedro_project_setup/settings.html."""
 
-# Instantiated project hooks.
-from .dagascii import draw
-from kedro.framework.hooks import hook_impl
 import itertools
+
+from kedro.framework.hooks import hook_impl
+from .dagascii import draw
+
 
 class AsciiHook:
     def _get_pipeline_graph(self, pipeline):
@@ -19,15 +20,12 @@ class AsciiHook:
                 edges.append((name, output_))
         return edges
 
-
-    
     def draw_graph(self, edges, vertexes=None, reverse=True):
         if vertexes is None:
             vertexes = set(itertools.chain(*edges))  # find unique nodes
         if reverse:
             print(edges)
             edges = [(e[1], e[0]) for e in edges]  # Reverse the drawing direction
-
 
         print(draw(vertexes, edges))
 
@@ -37,14 +35,10 @@ class AsciiHook:
 
     @hook_impl
     def before_pipeline_run(self, pipeline):
-        print("*****" * 10)
-        print("Before Pipeline Run.")
-        print(pipeline)
         self.draw_pipeline(pipeline)
-        print("End")
-        raise
 
 
+# Instantiated project hooks.
 HOOKS = (AsciiHook(),)
 
 # Installed plugins for which to disable hook auto-registration.
