@@ -125,6 +125,9 @@ def cli():
 @click.option(
     "--params", type=str, default="", help=PARAMS_ARG_HELP, callback=_split_params
 )
+@click.option(
+    "--exclude-node", type=str, default=""
+)
 def run(
     tag,
     env,
@@ -140,6 +143,7 @@ def run(
     pipeline,
     config,
     params,
+    exclude_node,
 ):
     """Run the pipeline."""
     if parallel and runner:
@@ -155,6 +159,8 @@ def run(
     tag = _get_values_as_tuple(tag) if tag else tag
     node_names = _get_values_as_tuple(node_names) if node_names else node_names
 
+
+    pipeline
     package_name = str(Path(__file__).resolve().parent.name)
     with KedroSession.create(package_name, env=env, extra_params=params) as session:
         session.run(
