@@ -1,5 +1,4 @@
 .mypy_cache
 *.json
-kedro_cli_extension
 .idea/
 
