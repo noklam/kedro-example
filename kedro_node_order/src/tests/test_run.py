@@ -11,16 +11,20 @@ from pathlib import Path
 
 import pytest
 from kedro.framework.context import KedroContext
+from kedro.framework.session import KedroSession
 
+# @pytest.fixture
+# def project_context():
+#     return KedroContext(package_name="kedro_node_order", project_path=Path.cwd())
 
-@pytest.fixture
-def project_context():
-    return KedroContext(package_name="kedro_node_order", project_path=Path.cwd())
-
+def test_pipeline_run():
+    with KedroSession.create(package_name="kedro_node_order",
+    project_path = "../") as session:
+        session.run()
 
 # The tests below are here for the demonstration purpose
 # and should be replaced with the ones testing the project
 # functionality
-class TestProjectContext:
-    def test_package_name(self, project_context):
-        assert project_context.package_name == "kedro_node_order"
+# class TestProjectContext:
+#     def test_package_name(self, project_context):
+#         assert project_context.package_name == "kedro_node_order"
