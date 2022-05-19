@@ -14,6 +14,3 @@ Try different things:
 | ![images/pipeline_2a.png](images/pipeline_2a.png) | ![images/code_2a.png](images/code_2a.png) |
 | ![images/pipeline_3.png](images/pipeline_3.png) | ![images/code_3.png](images/code_3.png) |
 
-
-M_ACT_OOCL_INV_CHG
-M_ACT_OOCL_EQP_HIST
