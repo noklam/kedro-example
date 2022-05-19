@@ -12,6 +12,9 @@ np.random.seed(2022) # Fixed seed
 print(np.random.randint(10))
 print(np.random.randint(10))
 
+from rich.traceback import install
+# install()
+
 def node_1(): # e.g. Model initialization/train/test split
     return '1'
 
@@ -22,7 +25,9 @@ def node_3():
     return '3'
 
 def node_4(x):
+    raise ValueError
     return '4'
+
 def node_5(x):
     return '5'
 
