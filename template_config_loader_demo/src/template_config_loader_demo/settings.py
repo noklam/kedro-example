@@ -41,7 +41,8 @@ from kedro.config import TemplatedConfigLoader
 class MyTemplatedConfigLoader(TemplatedConfigLoader):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._config_mapping.update(self.runtime_params)
+        if self.runtime_params:
+            self._config_mapping.update(self.runtime_params)
 
 CONFIG_LOADER_CLASS = MyTemplatedConfigLoader # TemplatedConfigLoader
 # Keyword arguments to pass to the `CONFIG_LOADER_CLASS` constructor.
