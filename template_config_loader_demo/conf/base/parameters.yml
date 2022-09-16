@@ -3,3 +3,6 @@ random_state: 3
 target_column: species
 
 env: ${GLOBAL_ENV}
+nested_1:
+  nested_2: 2
+  nested_3: 3

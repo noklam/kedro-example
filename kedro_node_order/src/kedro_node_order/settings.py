@@ -1,8 +1,5 @@
 """Project settings."""
-from kedro_node_order.hooks import ProjectHooks
 
-# Instantiate and list your project hooks here
-HOOKS = (ProjectHooks(),)
 
 # List the installed plugins for which to disable auto-registry
 # DISABLE_HOOKS_FOR_PLUGINS = ("kedro-viz",)

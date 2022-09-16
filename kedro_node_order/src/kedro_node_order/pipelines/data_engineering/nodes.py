@@ -25,7 +25,7 @@ def node_3():
     return '3'
 
 def node_4(x):
-    raise ValueError
+    # raise ValueError
     return '4'
 
 def node_5(x):

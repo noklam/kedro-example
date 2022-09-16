@@ -37,9 +37,12 @@ class AsciiHook:
     def before_pipeline_run(self, pipeline):
         self.draw_pipeline(pipeline)
 
+    @hook_impl
+    def after_catalog_created(self, conf_catalog):
+        print(conf_catalog)
 
 # Instantiated project hooks.
-HOOKS = (AsciiHook(),)
+# HOOKS = (AsciiHook(),)
 
 # Installed plugins for which to disable hook auto-registration.
 # DISABLE_HOOKS_FOR_PLUGINS = ("kedro-viz",)

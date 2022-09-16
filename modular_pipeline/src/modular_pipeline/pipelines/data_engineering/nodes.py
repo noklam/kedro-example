@@ -36,17 +36,15 @@ from typing import Any, Dict
 import pandas as pd
 
 
-
- 
-
 def node1_func(x):
-     return '1'
+    return "1"
+
 
 def node2_func(x):
-    return '2'
+    return "2"
 
-def add(x,y):
+
+def add(x, y):
     result = x + y
     print("**************RESULT****************", result)
     return result
-

@@ -45,33 +45,47 @@ def grill(x):
     return 'grill'
 
 
-cook_pipeline = Pipeline(
+# cook_pipeline = Pipeline(
+#     [
+#         node(defrost, "frozen_meat", "meat", name="defrost_node"),
+#         node(grill, "meat", "grilled_meat"),
+#     ]
+# )
+
+# cook_breakfast_pipeline = pipeline(
+#     cook_pipeline,
+#     inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
+#     outputs={"grilled_meat": "breakfast_food"},
+#     namespace="breakfast",
+# )
+# cook_lunch_pipeline = pipeline(
+#     cook_pipeline,
+#     inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
+#     outputs={"grilled_meat": "lunch_food"},
+#     namespace="lunch",
+# )
+
+# final_pipeline = (
+#     cook_breakfast_pipeline
+#     + cook_lunch_pipeline
+# )
+cook_pipeline = pipeline(
     [
-        node(defrost, "frozen_meat", "meat", name="defrost_node"),
-        node(grill, "meat", "grilled_meat"),
+        node(func=defrost, inputs="frozen_veg", outputs="veg"),
+        node(func=grill, inputs="veg", outputs="grilled_veg"),
     ]
 )
 
-cook_breakfast_pipeline = pipeline(
-    cook_pipeline,
-    inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "breakfast_food"},
-    namespace="breakfast",
-)
-cook_lunch_pipeline = pipeline(
-    cook_pipeline,
-    inputs={"frozen_meat": "frozen_meat"},  # inputs stay the same, don't namespace
-    outputs={"grilled_meat": "lunch_food"},
-    namespace="lunch",
-)
 
-final_pipeline = (
-    cook_breakfast_pipeline
-    + cook_lunch_pipeline
-)
+def eat(food):
+    return None
+lunch_pipeline = pipeline([node(func=eat, inputs="food", outputs=None)])
 
+prep_pipeline = pipeline(pipe=cook_pipeline, outputs={"grilled_veg": "food"})
+
+# lunch_pipeline = pipeline(pipe=lunch_pipeline, inputs={"food":"grilled_veg"})
 def create_pipeline():
-    return final_pipeline
+    return prep_pipeline + lunch_pipeline
     # node1 = node(func=node1_func, inputs="a", outputs="b")
     # node2 = node(func=node2_func, inputs="c", outputs="d")
     # node3 = node(func=add, inputs=["b", "d"], outputs="sum")

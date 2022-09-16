@@ -1,5 +1,8 @@
 # template_config_loader_demo
 
+# Run
+`kedro run --params=GLOBAL_DIR:ARBITARY_PATH`
+
 ## Overview
 
 This is your new Kedro project, which was generated using `Kedro 0.18.1`.

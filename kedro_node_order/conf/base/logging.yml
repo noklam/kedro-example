@@ -34,12 +34,8 @@ handlers:
         encoding: utf8
         delay: True
 
-    journal_file_handler:
-        class: kedro.versioning.journal.JournalFileHandler
-        level: INFO
-        base_dir: logs/journals
-        formatter: json_formatter
-
+    rich:
+        class: rich.logging.RichHandler
 loggers:
     anyconfig:
         level: WARNING
@@ -56,11 +52,6 @@ loggers:
         handlers: [console, info_file_handler, error_file_handler]
         propagate: no
 
-    kedro.journal:
-        level: INFO
-        handlers: [journal_file_handler]
-        propagate: no
-
 root:
     level: INFO
-    handlers: [console, info_file_handler, error_file_handler]
+    handlers: [rich, info_file_handler, error_file_handler]
