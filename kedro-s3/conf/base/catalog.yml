@@ -44,6 +44,7 @@
 
 example_iris_data:
   type: pandas.CSVDataSet
-  # filepath: data/01_raw/iris.csv
-  filepath: s3://nok/data/01_raw/iris.csv
+  filepath: data/01_raw/iris.csv
+  # filepath: s3://nok/data/01_raw/iris.csv
+  # versioned: True
   credentials: dev_s3
