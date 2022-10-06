@@ -2,10 +2,8 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
-metrics:
-  type: tracking.MetricsDataSet
-  filepath: data/09_tracking/metrics.json
 
-companies_columns:
-  type: tracking.JSONDataSet
-  filepath: data/09_tracking/companies_columns.json
+
+test_attribute_metrics:
+  type: tracking.MetricsDataSet
+  filepath: data/09_tracking/test_attribute_metrics.json

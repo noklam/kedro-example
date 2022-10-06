@@ -1,7 +1,7 @@
 [tool.kedro]
 package_name = "exp_tracking"
 project_name = "exp_tracking"
-project_version = "0.17.7"
+project_version = "0.18.2"
 
 [tool.isort]
 multi_line_output = 3

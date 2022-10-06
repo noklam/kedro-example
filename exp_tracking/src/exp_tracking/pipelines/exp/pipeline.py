@@ -14,7 +14,7 @@ def exp_tracking():
     return metrics, columns
 
 
-node1 = node(exp_tracking, None, ["metrics", "companies_columns"])
+node1 = node(exp_tracking, None, ["test_attribute_metrics", "companies_columns"])
 
 
 def create_pipeline(**kwargs) -> Pipeline:

@@ -1,0 +1,17 @@
+[tool.kedro]
+package_name = "pyspark_iris"
+project_name = "pyspark-iris"
+project_version = "0.18.3"
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = """
+--cov-report term-missing \
+--cov src/pyspark_iris -ra"""
+
+[tool.coverage.report]
+fail_under = 0
+show_missing = true
+exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
