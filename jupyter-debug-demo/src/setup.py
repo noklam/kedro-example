@@ -1,6 +1,8 @@
 from setuptools import find_packages, setup
 
-entry_point = "pip-install-hooks = pip_install_hooks.__main__:main"
+entry_point = (
+    "jupyter-debug-demo = jupyter_debug_demo.__main__:main"
+)
 
 
 # get the dependencies and installs
@@ -15,14 +17,10 @@ with open("requirements.txt", encoding="utf-8") as f:
             requires.append(req)
 
 setup(
-    name="pip_install_hooks",
+    name="jupyter_debug_demo",
     version="0.1",
     packages=find_packages(exclude=["tests"]),
-    entry_points={
-        "kedro.hooks": [
-            "pip-install-hooks = pip_install_hooks.hook:nok_hook",
-        ]
-    },
+    entry_points={"console_scripts": [entry_point]},
     install_requires=requires,
     extras_require={
         "docs": [
@@ -31,11 +29,11 @@ setup(
             "sphinx_rtd_theme==0.5.1",
             "nbsphinx==0.8.1",
             "nbstripout~=0.4",
+            "myst-parser~=0.17.2",
             "sphinx-autodoc-typehints==1.11.1",
             "sphinx_copybutton==0.3.1",
             "ipykernel>=5.3, <7.0",
             "Jinja2<3.1.0",
-            "myst-parser~=0.17.2",
         ]
     },
 )

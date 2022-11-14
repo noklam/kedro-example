@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/Nok_Lam_Chan/dev/kedro_gallery/pip-install-hooks/mlruns/1/65173582e3a8426f8ad1ddc94d60ad41/artifacts
+end_time: 1666020765385
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: 65173582e3a8426f8ad1ddc94d60ad41
+run_uuid: 65173582e3a8426f8ad1ddc94d60ad41
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1666020765342
+status: 3
+tags: []
+user_id: Nok_Lam_Chan

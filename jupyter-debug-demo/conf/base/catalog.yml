@@ -44,14 +44,15 @@
 
 example_iris_data:
   type: pandas.CSVDataSet
-  # filepath: data/01_raw/iris.csv
-  filepath: s3://nok/data/01_raw/iris.csv
-  versioned: True
-  credentials: dev_s3
-
+  filepath: data/01_raw/iris.csv
+  versioned: true
 
 y_pred:
   type: pickle.PickleDataSet
-  filepath: s3://nok/data/01_raw/y_pred.pkl
-  # filepath: s3://nok/data/01_raw/iris.csv
-  credentials: dev_s3
+  filepath: data/01_raw/y_pred.pkl
+  versioned: true
+
+y_test:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/y_test.pkl
+  versioned: true

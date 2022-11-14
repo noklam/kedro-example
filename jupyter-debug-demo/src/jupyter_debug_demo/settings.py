@@ -2,13 +2,13 @@
 from the Kedro defaults. For further information, including these default values, see
 https://kedro.readthedocs.io/en/stable/kedro_project_setup/settings.html."""
 
-from kedro.framework.hooks import _create_hook_manager
-from pip_install_hooks.hook import NokHook
-
+# Instantiated project hooks.
+# from jupyter_debug_demo.hooks import ProjectHooks
+# HOOKS = (ProjectHooks(),)
 
 # Installed plugins for which to disable hook auto-registration.
-DISABLE_HOOKS_FOR_PLUGINS = ("pip-install-hooks",)
-HOOKS = (NokHook(), )
+# DISABLE_HOOKS_FOR_PLUGINS = ("kedro-viz",)
+
 # Class that manages storing KedroSession data.
 # from kedro.framework.session.store import ShelveStore
 # SESSION_STORE_CLASS = ShelveStore

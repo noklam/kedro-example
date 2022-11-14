@@ -1,0 +1,6 @@
+artifact_location: file:///Users/Nok_Lam_Chan/dev/kedro_gallery/pip-install-hooks/mlruns/1
+creation_time: 1666020675197
+experiment_id: '1'
+last_update_time: 1666020675197
+lifecycle_stage: active
+name: pip_install_hooks

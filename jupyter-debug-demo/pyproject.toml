@@ -1,6 +1,6 @@
 [tool.kedro]
-package_name = "kedro_debug_runner_demo"
-project_name = "kedro_debug_runner_demo"
+package_name = "jupyter_debug_demo"
+project_name = "jupyter_debug_demo"
 project_version = "0.18.3"
 
 [tool.isort]
@@ -9,7 +9,7 @@ profile = "black"
 [tool.pytest.ini_options]
 addopts = """
 --cov-report term-missing \
---cov src/kedro_debug_runner_demo -ra"""
+--cov src/jupyter_debug_demo -ra"""
 
 [tool.coverage.report]
 fail_under = 0
