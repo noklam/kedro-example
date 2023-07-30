@@ -1,0 +1,17 @@
+[tool.kedro]
+package_name = "chunk_process"
+project_name = "chunk_process"
+kedro_init_version = "0.18.6"
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = """
+--cov-report term-missing \
+--cov src/chunk_process -ra"""
+
+[tool.coverage.report]
+fail_under = 0
+show_missing = true
+exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
