@@ -1,4 +1,4 @@
 train_fraction: 0.8
 random_state: 3
 target_column: species
-special_parameter: '${datetime:2022,2,23}'
+special_parameter: 123
