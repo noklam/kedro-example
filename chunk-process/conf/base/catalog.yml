@@ -47,10 +47,11 @@ example_iris_data:
   type: chunk_process.extras.datasets.chunkwise.ChunkWiseCSVDataSet
   filepath: data/01_raw/iris.csv
   load_args:
-    chunksize: 100
+    chunksize: 1000
 
 X_train_chunk:
   type: chunk_process.extras.datasets.chunkwise.ChunkWiseCSVDataSet
-  filepath: data/01_raw/iris.csv
+  filepath: data/02_intermediate/iris.csv
   load_args:
-    chunksize: 100
+    chunksize: 1000
+
