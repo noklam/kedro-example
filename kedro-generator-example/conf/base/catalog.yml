@@ -8,7 +8,7 @@
 # An example data set definition can look as follows:
 #
 #bikes:
-#  type: pandas.CSVDataSet
+#  type: kedro_generator_example.chunkwise.ChunkWiseCSVDataSet
 #  filepath: "data/01_raw/bikes.csv"
 #
 #weather:
@@ -45,3 +45,13 @@
 example_iris_data:
   type: pandas.CSVDataSet
   filepath: data/01_raw/iris.csv
+
+X_test:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/X_test.csv
+  load_args:
+    chunksize: 10
+
+y_pred:
+  type: kedro_generator_example.chunkwise.ChunkWiseCSVDataSet
+  filepath: data/07_model_output/y_pred.csv

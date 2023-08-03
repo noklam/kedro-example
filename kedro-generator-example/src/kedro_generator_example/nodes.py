@@ -4,8 +4,10 @@ generated using Kedro 0.18.11
 """
 
 import logging
-from typing import Any, Dict, Tuple
-
+from typing import Any, Dict, Tuple, Iterator
+from sklearn.preprocessing import LabelEncoder
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
 import numpy as np
 import pandas as pd
 
@@ -32,34 +34,25 @@ def split_data(
     y_train = data_train[parameters["target_column"]]
     y_test = data_test[parameters["target_column"]]
 
+    label_encoder = LabelEncoder()
+    label_encoder.fit(pd.concat([y_train, y_test]))
+    y_train = label_encoder.transform(y_train)
+
     return X_train, X_test, y_train, y_test
 
 
 def make_predictions(
     X_train: pd.DataFrame, X_test: pd.DataFrame, y_train: pd.Series
 ) -> pd.Series:
-    """Uses 1-nearest neighbour classifier to create predictions.
+    """Use a DecisionTreeClassifier model to make prediction."""
+    model = DecisionTreeClassifier()
+    model.fit(X_train, y_train)
 
-    Args:
-        X_train: Training data of features.
-        y_train: Training data for target.
-        X_test: Test data for features.
-
-    Returns:
-        y_pred: Prediction of the target variable.
-    """
-
-    X_train_numpy = X_train.to_numpy()
-    X_test_numpy = X_test.to_numpy()
-
-    squared_distances = np.sum(
-        (X_train_numpy[:, None, :] - X_test_numpy[None, :, :]) ** 2, axis=-1
-    )
-    nearest_neighbour = squared_distances.argmin(axis=0)
-    y_pred = y_train.iloc[nearest_neighbour]
-    y_pred.index = X_test.index
-
-    return y_pred
+    for chunk in X_test:
+        y_pred = model.predict(chunk)
+        y_pred = pd.DataFrame(y_pred)
+        print(y_pred.shape)
+        yield y_pred
 
 
 def report_accuracy(y_pred: pd.Series, y_test: pd.Series):
@@ -69,6 +62,6 @@ def report_accuracy(y_pred: pd.Series, y_test: pd.Series):
         y_pred: Predicted target.
         y_test: True target.
     """
-    accuracy = (y_pred == y_test).sum() / len(y_test)
+    accuracy = accuracy_score(y_test, y_pred)
     logger = logging.getLogger(__name__)
     logger.info("Model has accuracy of %.3f on test data.", accuracy)
