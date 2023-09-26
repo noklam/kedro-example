@@ -9,8 +9,6 @@ from typing import Any, Dict, Tuple
 import numpy as np
 import pandas as pd
 
-
-def make_predictions(input_data):
-
-    output_data = {"output_data": "dummy"}
+def make_monthly_predictions(input_data):
+    output_data = "dummy"
     return output_data

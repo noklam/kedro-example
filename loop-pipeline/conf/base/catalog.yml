@@ -45,3 +45,7 @@
 my_input_data_january:
   type: pandas.CSVDataSet
   filepath: data/01_raw/iris.csv
+
+janurary.my_input_data_january:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/iris.csv
