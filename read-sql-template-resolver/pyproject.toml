@@ -1,0 +1,17 @@
+[tool.kedro]
+package_name = "read_sql_template_resolver"
+project_name = "read_sql_template_resolver"
+kedro_init_version = "0.18.13"
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = """
+--cov-report term-missing \
+--cov src/read_sql_template_resolver -ra"""
+
+[tool.coverage.report]
+fail_under = 0
+show_missing = true
+exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
