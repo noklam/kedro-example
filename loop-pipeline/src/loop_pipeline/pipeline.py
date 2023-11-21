@@ -14,7 +14,7 @@ base_pipeline = pipeline(
         node(
             func=make_monthly_predictions,
             inputs=["input_data"],
-            outputs=["output_data"]
+            outputs="output_data"
         )
     ]
 )
@@ -27,6 +27,8 @@ def create_pipeline():
         pipelines.append(pipeline(base_pipeline,
                                   outputs={"output_data":f"{next}.input_data"}, # Override the input definition
                                           namespace=curr))
-    return pipeline(pipelines) # Aggregate the pipelines
+    agg_pipelines = pipeline(pipelines) # Aggregate the pipelines
+    print(agg_pipelines)
+    return agg_pipelines
 
 

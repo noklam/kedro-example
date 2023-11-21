@@ -10,5 +10,7 @@ import numpy as np
 import pandas as pd
 
 def make_monthly_predictions(input_data):
-    output_data = "dummy"
-    return output_data
+    # A dummy funny
+
+    # Fill your actual logic!
+    return input_data
