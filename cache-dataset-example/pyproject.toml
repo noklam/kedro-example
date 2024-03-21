@@ -1,0 +1,31 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cache_dataset_example"
+readme = "README.md"
+dynamic = [ "dependencies", "version",]
+
+[project.scripts]
+cache-dataset-example = "cache_dataset_example.__main__:main"
+
+[tool.kedro]
+package_name = "cache_dataset_example"
+project_name = "cache-dataset-example"
+kedro_init_version = "0.19.3"
+tools = [ "None",]
+example_pipeline = "True"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
+
+[tool.setuptools.dynamic.version]
+attr = "cache_dataset_example.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false
