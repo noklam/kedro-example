@@ -1,0 +1,34 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "update_param_with_hook"
+readme = "README.md"
+dynamic = [ "dependencies", "version",]
+
+[project.scripts]
+update-param-with-hook = "update_param_with_hook.__main__:main"
+
+[tool.kedro]
+package_name = "update_param_with_hook"
+project_name = "update-param-with-hook"
+kedro_init_version = "0.19.8"
+tools = [ "None",]
+example_pipeline = "True"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
+
+[tool.setuptools.dynamic.version]
+attr = "update_param_with_hook.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false
+
+[tool.kedro_telemetry]
+project_id = "099fdfc96a814632a8dba7468d215a61"
