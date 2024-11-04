@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/Nok_Lam_Chan/dev/kedro/tmp/spaceflights-pandas/notebooks/mlruns/0/186ed4b08df849fabb1d6a38daeeb67e/artifacts
+end_time: 1727224440285
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 186ed4b08df849fabb1d6a38daeeb67e
+run_name: gifted-tern-828
+run_uuid: 186ed4b08df849fabb1d6a38daeeb67e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727224440243
+status: 3
+tags: []
+user_id: Nok_Lam_Chan

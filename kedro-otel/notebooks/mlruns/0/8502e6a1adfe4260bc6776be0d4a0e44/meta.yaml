@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/Nok_Lam_Chan/dev/kedro/tmp/spaceflights-pandas/notebooks/mlruns/0/8502e6a1adfe4260bc6776be0d4a0e44/artifacts
+end_time: 1727224332131
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8502e6a1adfe4260bc6776be0d4a0e44
+run_name: clumsy-hare-981
+run_uuid: 8502e6a1adfe4260bc6776be0d4a0e44
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727224332112
+status: 4
+tags: []
+user_id: Nok_Lam_Chan

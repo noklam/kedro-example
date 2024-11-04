@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/Nok_Lam_Chan/dev/kedro/tmp/spaceflights-pandas/notebooks/mlruns/0/3e5fe8c5be8944a3bf3e3cb8a4d5c80e/artifacts
+end_time: 1727224257162
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3e5fe8c5be8944a3bf3e3cb8a4d5c80e
+run_name: polite-slug-317
+run_uuid: 3e5fe8c5be8944a3bf3e3cb8a4d5c80e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727224257124
+status: 4
+tags: []
+user_id: Nok_Lam_Chan

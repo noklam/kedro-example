@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/Nok_Lam_Chan/dev/kedro/tmp/spaceflights-pandas/notebooks/mlruns/0/19c610eff4514d56a517067e8b255943/artifacts
+end_time: 1727223329371
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 19c610eff4514d56a517067e8b255943
+run_name: serious-mouse-151
+run_uuid: 19c610eff4514d56a517067e8b255943
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727223329354
+status: 3
+tags: []
+user_id: Nok_Lam_Chan

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/Nok_Lam_Chan/dev/kedro/tmp/spaceflights-pandas/notebooks/mlruns/0/35defb1ba0374ed68ae3e2aa8190d7dd/artifacts
+end_time: 1727224532759
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 35defb1ba0374ed68ae3e2aa8190d7dd
+run_name: sedate-snipe-363
+run_uuid: 35defb1ba0374ed68ae3e2aa8190d7dd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727224532742
+status: 3
+tags: []
+user_id: Nok_Lam_Chan
