@@ -1,0 +1,33 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+requires-python = ">=3.9"
+name = "iceberg_incremental"
+readme = "README.md"
+dynamic = [ "version",]
+dependencies = [ "ipython>=8.10", "jupyterlab>=3.0", "notebook", "kedro~=0.19.9", "kedro[jupyter]", "kedro-datasets[pandas-csvdataset, pandas-exceldataset, pandas-parquetdataset]>=3.0", "kedro-viz>=6.7.0", "scikit-learn~=1.5.1",]
+
+[project.scripts]
+iceberg-incremental = "iceberg_incremental.__main__:main"
+
+[tool.kedro]
+package_name = "iceberg_incremental"
+project_name = "iceberg-incremental"
+kedro_init_version = "0.19.9"
+tools = "['None']"
+example_pipeline = "True"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.setuptools.dynamic.version]
+attr = "iceberg_incremental.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false
+
+[tool.kedro_telemetry]
+project_id = "72dc30383a3544f5b30b5683f4b0b96c"
